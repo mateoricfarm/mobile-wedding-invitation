@@ -14,24 +14,29 @@ import Main from '@/layout/Main/Main.tsx';
 function App() {
   const ncpClientId = import.meta.env.VITE_APP_NAVERMAPS_CLIENT_ID;
   const [isVisible, setIsVisible] = useState(false);
-  const galleryRef = useRef(null);
+  const hasScrolled = useRef(false); // ✅ 한 번이라도 내린 적이 있는지
 
   useEffect(() => {
-    window.addEventListener('scroll', checkScrollPosition);
-    return () => {
-      window.removeEventListener('scroll', checkScrollPosition);
+    const handleScroll = () => {
+      requestAnimationFrame(checkScrollPosition);
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const checkScrollPosition = () => {
-    if (galleryRef.current) {
-      const { offsetTop } = galleryRef.current;
-      const scrollPosition = window.scrollY;
+    const scrollY = window.scrollY;
+    const threshold = 300;
 
-      if (scrollPosition >= offsetTop) {
-        setIsVisible(true);
+    if (scrollY > threshold) {
+      hasScrolled.current = true;
+      setIsVisible(true);
+    } else {
+      if (hasScrolled.current) {
+        setIsVisible(true); // 한 번 내려갔던 적 있으면 계속 보여줌
       } else {
-        setIsVisible(false);
+        setIsVisible(false); // 내려간 적이 없다면 숨김
       }
     }
   };
@@ -46,7 +51,7 @@ function App() {
           <Heading1>모시는 글</Heading1>
           <Invitation />
         </Wrapper>
-        <Wrapper ref={galleryRef}>
+        <Wrapper>
           <Heading1>Gallery</Heading1>
           <GalleryWrap />
         </Wrapper>

@@ -1,32 +1,35 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
-// import { push, ref, serverTimestamp } from 'firebase/database';
-// import { realtimeDb } from '../../firebase.ts';
-
-// TODO: 방명록 기능 사용시, realtime db에 guestbook 추가
-// const guestbookRef = ref(realtimeDb, 'guestbook');
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '@/firebase'; // ← Firestore 인스턴스 경로 맞게 수정하세요
 
 const CommentForm = () => {
   const [name, setName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (!name || !message) {
       alert('이름과 메시지를 채워주세요. 🥹');
-    } else {
-      e.preventDefault();
-      // TODO: 이름, 메시지, 생성시간, 작성날짜 저장.
-      // const guestbookMessage = {
-      //   sender: name,
-      //   message: message,
-      //   createdAt: serverTimestamp(),
-      //   date: new Date().toLocaleString(),
-      // };
-      // void push(guestbookRef, guestbookMessage);
-      //
-      // alert('메시지를 보냈습니다. 💌');
+      return;
+    }
+
+    try {
+      const guestbookMessage = {
+        sender: name,
+        message: message,
+        createdAt: serverTimestamp(),
+        date: new Date().toLocaleString(),
+      };
+
+      await addDoc(collection(db, 'guestbook'), guestbookMessage);
+      alert('메시지를 보냈습니다. 💌');
       setName('');
       setMessage('');
+    } catch (error) {
+      console.error('🔥 메시지 저장 실패:', error);
+      alert('메시지 전송 중 문제가 발생했습니다.');
     }
   };
 
@@ -96,4 +99,5 @@ const SubmitButton = styled.button`
   font-weight: inherit;
   color: inherit;
 `;
+
 export default CommentForm;

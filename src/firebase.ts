@@ -1,11 +1,17 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
 
-// TODO: https://firebase.google.com/docs/web/setup?hl=ko
-// 가이드에 따라 firebase config를 설정합니다.
+// Firebase 설정
 const firebaseConfig = {
-
+  apiKey: "AIzaSyBmldAJy57sOZMu6mlYJZUqID14G0i27dw",
+  authDomain: "weddingbook1019.firebaseapp.com",
+  projectId: "weddingbook1019",
+  storageBucket: "weddingbook1019.firebasestorage.app",
+  messagingSenderId: "174635634801",
+  appId: "1:174635634801:web:f71c33dde968f07b498bd0",
+  measurementId: "G-6BV7PYGJK1"
 };
 
-export const firebaseApp = initializeApp(firebaseConfig);
-export const realtimeDb = getDatabase(firebaseApp);
+// 앱 초기화 후 db 인스턴스 생성
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
