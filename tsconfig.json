@@ -14,7 +14,7 @@
       "@/styles/*": ["./styles/*"],
       "@/hooks/*": ["./hooks/*"],
       "@/utils/*": ["./utils/*"],
-      "@/types/*": ["./types/*"]
+      "@/types/*": ["./types/*"],
       "@/firebase": ["./firebase.ts"]
     },
 
