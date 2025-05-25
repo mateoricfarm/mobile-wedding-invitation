@@ -13,6 +13,10 @@ import Main from '@/layout/Main/Main.tsx';
 
 function App() {
   const ncpClientId = import.meta.env.VITE_APP_NAVERMAPS_CLIENT_ID;
+
+  // ✅ 콘솔에서 환경변수 확인
+  console.log("✅ 네이버맵 Client ID:", ncpClientId);
+
   const [isVisible, setIsVisible] = useState(false);
   const hasScrolled = useRef(false); // ✅ 한 번이라도 내린 적이 있는지
 
