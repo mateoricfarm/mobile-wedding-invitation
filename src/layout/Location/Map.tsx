@@ -1,27 +1,26 @@
-import data from 'data.json';
-import { Container as MapDiv, Marker, NaverMap, useNavermaps } from 'react-naver-maps';
+import styled from '@emotion/styled';
 
 const Map = () => {
-  const { lat, lon } = data.mapInfo;
-  const navermaps = useNavermaps();
-
   return (
-    <MapDiv
-      style={{
-        width: '100%',
-        height: '300px',
-      }}>
-      <NaverMap
-        defaultCenter={new navermaps.LatLng(lat, lon)}
-        defaultZoom={17}
-        draggable={false}
-        pinchZoom={false}
-        scrollWheel={false}
-        keyboardShortcuts={false}>
-        <Marker defaultPosition={new navermaps.LatLng(lat, lon)} />
-      </NaverMap>
-    </MapDiv>
+    <MapWrapper>
+      <iframe
+        title="kakao-map"
+        src="https://place.map.kakao.com/m/27446151"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        style={{ border: 0 }}
+      ></iframe>
+    </MapWrapper>
   );
 };
 
 export default Map;
+
+const MapWrapper = styled.div`
+  width: 100%;
+  height: 300px;
+  margin: 10px 0;
+  border-radius: 8px;
+  overflow: hidden;
+`;

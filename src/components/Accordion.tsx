@@ -6,6 +6,7 @@ interface IAccordionProps {
   title: string;
   children: ReactNode;
 }
+
 const Accordion = ({ title, children }: IAccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,12 +18,10 @@ const Accordion = ({ title, children }: IAccordionProps) => {
     <AccordionWrapper>
       <AccordionHeader isActive={isOpen} onClick={toggleAccordion}>
         <p>{title}</p>
-
         <span>
           <ExpandMore fill="#e88ca6" />
         </span>
       </AccordionHeader>
-
       {isOpen && <AccordionContent>{children}</AccordionContent>}
     </AccordionWrapper>
   );
@@ -30,8 +29,9 @@ const Accordion = ({ title, children }: IAccordionProps) => {
 
 export default Accordion;
 
+// ✅ 여기서 글씨체를 Do Hyeon으로 변경
 const AccordionWrapper = styled.div`
-  font-family: HSSanTokki20-Regular, serif;
+  font-family: 'Do Hyeon', sans-serif;
   border: 1px solid #e6ece1;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -46,9 +46,12 @@ const AccordionHeader = styled.div<{ isActive: boolean }>`
   background-color: #e6ece1;
   padding: 0 15px;
   cursor: pointer;
+  font-family: 'Do Hyeon', sans-serif;
+
   & > p {
     color: #44484d;
   }
+
   & > span {
     display: flex;
     align-items: center;
@@ -60,6 +63,7 @@ const AccordionHeader = styled.div<{ isActive: boolean }>`
 `;
 
 const AccordionContent = styled.div`
+  font-family: 'Do Hyeon', sans-serif;
   font-size: 14px;
   text-align: justify;
   padding: 10px 20px;

@@ -14,19 +14,24 @@ import Main from '@/layout/Main/Main.tsx';
 function App() {
   const ncpClientId = import.meta.env.VITE_APP_NAVERMAPS_CLIENT_ID;
 
-  // ✅ 콘솔에서 환경변수 확인
-  console.log("✅ 네이버맵 Client ID:", ncpClientId);
-
   const [isVisible, setIsVisible] = useState(false);
-  const hasScrolled = useRef(false); // ✅ 한 번이라도 내린 적이 있는지
+  const hasScrolled = useRef(false); // ✅ 한 번이라도 스크롤 내린 적 있는지
 
   useEffect(() => {
     const handleScroll = () => {
       requestAnimationFrame(checkScrollPosition);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // ✅ DOM 렌더링 안정화 후 스크롤 이벤트 등록
+    const timeout = setTimeout(() => {
+      window.addEventListener('scroll', handleScroll);
+      checkScrollPosition(); // 초기 스크롤 상태 확인
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const checkScrollPosition = () => {
@@ -38,9 +43,9 @@ function App() {
       setIsVisible(true);
     } else {
       if (hasScrolled.current) {
-        setIsVisible(true); // 한 번 내려갔던 적 있으면 계속 보여줌
+        setIsVisible(true);
       } else {
-        setIsVisible(false); // 내려간 적이 없다면 숨김
+        setIsVisible(false);
       }
     }
   };
