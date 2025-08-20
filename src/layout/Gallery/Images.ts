@@ -19,7 +19,7 @@ const images = [
   { alt: 'image03', source: image03, width: 640, height: 960 },
   { alt: 'image04', source: image04, width: 640, height: 960 },
   { alt: 'image05', source: image05, width: 640, height: 960 },
-  { alt: 'image06', source: image06, width: 960, height: 640 },
+  { alt: 'image06', source: image06, width: 640, height: 960 },
   { alt: 'image07', source: image07, width: 640, height: 960 },
   { alt: 'image08', source: image08, width: 640, height: 960 },
   { alt: 'image09', source: image09, width: 640, height: 960 },
@@ -27,7 +27,7 @@ const images = [
   { alt: 'image11', source: image11, width: 640, height: 960 },
   { alt: 'image12', source: image12, width: 640, height: 960 },
   { alt: 'image13', source: image13, width: 640, height: 960 },
-  { alt: 'image14', source: image14, width: 960, height: 640 },
+  { alt: 'image14', source: image14, width: 640, height: 960 },
 ];
 
 export default images;
