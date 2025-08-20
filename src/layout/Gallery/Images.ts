@@ -26,8 +26,8 @@ const images = [
   { alt: 'image10', source: image10, width: 640, height: 960 },
   
   { alt: 'image12', source: image12, width: 640, height: 960 },
-  { alt: 'image13', source: image13, width: 640, height: 960 },
-  { alt: 'image14', source: image14, width: 640, height: 960 },
+  { alt: 'image13', source: image13, width: 960, height: 640 },
+  { alt: 'image14', source: image14, width: 960, height: 640 },
 ];
 
 export default images;
