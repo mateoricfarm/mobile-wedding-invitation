@@ -32,7 +32,7 @@
         ]
       }
     },
-    "eventDetail": "2025년 10월 19일 (일) 12:00\n수원 월드컵 경기장 WI 웨딩홀 - I홀"
+    "eventDetail": "2025년 10월 19일 (일) 12:30\n수원 월드컵 경기장 WI 웨딩홀 - I홀"
   },
   "hostInfo": [
     {
@@ -41,22 +41,22 @@
         {
           "name": "이건의",
           "relation": "신랑",
-          "bank": "카카오뱅크",
-          "account": "1234-56-789012",
-          "kakaopayAccount": "",
+          "bank": "농협",
+          "account": "302-1404-133391",
+          "kakaopayAccount": "https://qr.kakaopay.com/Ej8Jf22CN",
           "tossAccount": ""
         },
         {
           "name": "이갑녕",
           "relation": "아버지",
-          "bank": "농협",
-          "account": "123-45-678901"
+          "bank": "하나은행_이건의",
+          "account": "540-9100-9744607"
         },
         {
           "name": "송민섭",
           "relation": "어머니",
           "bank": "농협",
-          "account": "123-45-678901"
+          "account": "170781-56-034249"
         }
       ]
     },
@@ -66,8 +66,8 @@
         {
           "name": "이수연",
           "relation": "신부",
-          "bank": "토스뱅크",
-          "account": "1234-5678-9012",
+          "bank": "농협",
+          "account": "356-0058-5927-53",
           "kakaopayAccount": "",
           "tossAccount": ""
         },
@@ -75,13 +75,13 @@
           "name": "이칠영",
           "relation": "아버지",
           "bank": "농협",
-          "account": "123-45-678901"
+          "account": "356-0574-4426-93"
         },
         {
-          "name": "이엄마",
+          "name": "최영임",
           "relation": "어머니",
           "bank": "농협",
-          "account": "123-45-678901"
+          "account": "352-0025-8634-63"
         }
       ]
     }
