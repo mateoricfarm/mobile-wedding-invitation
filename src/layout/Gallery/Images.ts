@@ -8,7 +8,7 @@ import image07 from '@/assets/images/07.jpg';
 import image08 from '@/assets/images/08.jpg';
 import image09 from '@/assets/images/09.jpg';
 import image10 from '@/assets/images/10.jpg';
-import image11 from '@/assets/images/11.jpg';
+
 import image12 from '@/assets/images/12.jpg';
 import image13 from '@/assets/images/13.jpg';
 import image14 from '@/assets/images/14.jpg';
@@ -24,7 +24,7 @@ const images = [
   { alt: 'image08', source: image08, width: 640, height: 960 },
   { alt: 'image09', source: image09, width: 640, height: 960 },
   { alt: 'image10', source: image10, width: 640, height: 960 },
-  { alt: 'image11', source: image11, width: 640, height: 960 },
+  
   { alt: 'image12', source: image12, width: 640, height: 960 },
   { alt: 'image13', source: image13, width: 640, height: 960 },
   { alt: 'image14', source: image14, width: 640, height: 960 },
