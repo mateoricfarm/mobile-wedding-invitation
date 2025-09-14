@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'npm'
+
+      # (선택) 키를 시크릿으로 관리한다면 .env 생성
+      # 레포 Settings → Secrets and variables → Actions → New repository secret
+      #  이름: NCP_MAPS_CLIENT_ID  값: 네이버 client_id
+      - name: Create .env
+        run: |
+          if [ -n "${{ secrets.NCP_MAPS_CLIENT_ID }}" ]; then
+            echo "VITE_APP_NAVERMAPS_CLIENT_ID=${{ secrets.NCP_MAPS_CLIENT_ID }}" > .env
+          fi
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
