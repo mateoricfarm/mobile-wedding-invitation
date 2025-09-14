@@ -1,38 +1,38 @@
 {
   "greeting": {
-    "title": "이건의 💍 이수연\n결혼합니다!",
-    "message": "저희 결혼합니다.\n\n서로에게 알맞은 온도로 따뜻하던 우리.\n부부로서 첫걸음을 내딛는 그 설렘의 순간에\n소중한 분들을 초대합니다.",
+    "title": "김관식 💍 임자영\n결혼합니다!",
+    "message": "저희 결혼합니다.\n\n서로의 그늘이 되어 주려고 합니다,.\n부부로서 첫걸음을 내딛는 그 설렘의 순간에\n소중한 분들을 초대합니다.",
     "host": {
       "groom": {
-        "name": "건의",
+        "name": "관식",
         "relation": "장남",
         "parents": [
           {
             "relation": "아버지",
-            "name": "이갑녕"
+            "name": "김영부"
           },
           {
             "relation": "어머니",
-            "name": "송민섭"
+            "name": "윤필주"
           }
         ]
       },
       "bride": {
-        "name": "수연",
-        "relation": "장녀",
+        "name": "자영",
+        "relation": "차녀",
         "parents": [
           {
             "relation": "아버지",
-            "name": "이칠영"
+            "name": "임흥준"
           },
           {
             "relation": "어머니",
-            "name": "최영임"
+            "name": "손태숙"
           }
         ]
       }
     },
-    "eventDetail": "2025년 10월 19일 (일) 12:30\n수원 월드컵 경기장 WI 웨딩홀 - I홀"
+    "eventDetail": "2026년 1월 3일 (토) 17:00\n더블유스퀘어웨딩홀"
   },
   "hostInfo": [
     {
